@@ -42,7 +42,7 @@ if app.activeSprite ~= nil then
             newCel.image:drawImage(image, position)
         end
 
-        filename = spr.filename:gsub("{filename}", (spr.filename:match("^.*(.+)$")))
+        filename = spr.filename:match("^(.+)%..+$")
         newSpr:saveAs(filename..".png")
         newSpr:close()
 
