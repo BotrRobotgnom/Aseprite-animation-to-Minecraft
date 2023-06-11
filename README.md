@@ -1,9 +1,9 @@
 # Asesprite Animation to Minecraft
 
-This script allows you to quickly export animations from Aseprite to PNG images and mcmeta files for use in Minecraft.
+This script allows you to quickly export animations from Aseprite to PNG image and mcmeta file for use in Minecraft.
 
 ## Features
-- Export animation frames as PNG images.
+- Export animation frames as PNG image.
 - Generate a corresponding mcmeta file with animation data.
 - Option to customize the frames per second (FPS) of the animation.
 
@@ -16,7 +16,7 @@ This script allows you to quickly export animations from Aseprite to PNG images 
 3. Select the desired export type: "Simple" (other options will be added in the future).
 4. Enter the frames per second (FPS) for the animation.
 5. Click the "Save" button.
-6. The script will export the animation frames as PNG files and generate a mcmeta file with animation data.
+6. The script will export the animation frames as PNG file and generate a mcmeta file with animation data.
 
 ## Installation
 1. Download the script file.
