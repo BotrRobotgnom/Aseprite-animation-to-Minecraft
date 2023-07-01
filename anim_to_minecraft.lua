@@ -2,7 +2,7 @@
 -- GitHub: https://github.com/BotrRobotgnom/Asesprite-animation-to-Minecraft
 
 if app.activeSprite ~= nil then
-    local dlg = Dialog{title = "AAtoM v0.1"}
+    local dlg = Dialog{title = "AAtoM v0.2"}
 
     -- Add elements to the dialog window
     dlg:label{ id="label", text="Select save type:" }
@@ -35,8 +35,12 @@ if app.activeSprite ~= nil then
             local cel = spr.layers[1]:cel(frame.frameNumber)
             local image = cel.image
 
+            -- Get the position offset of the original frame
+            local xOffset = cel.position.x
+            local yOffset = cel.position.y
+
             -- Calculate the position to insert the frame in the new sprite
-            local position = Point(0, height * (i - 1))
+            local position = Point(xOffset, height * (i - 1) + yOffset)
 
             -- Insert the frame image into the new sprite
             newCel.image:drawImage(image, position)
@@ -77,7 +81,7 @@ if app.activeSprite ~= nil then
                     jsonData = jsonData .. ','
                 end
                 jsonData = jsonData .. '\n'
-            end  
+            end
         end
 
         jsonData = jsonData .. '    ]\n}\n}\n'
@@ -103,5 +107,3 @@ else
         buttons = { "OK" }
     }  
 end
-
-
