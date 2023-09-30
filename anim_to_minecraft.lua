@@ -2,7 +2,7 @@
 -- GitHub: https://github.com/BotrRobotgnom/Asesprite-animation-to-Minecraft
 
 if app.activeSprite ~= nil then
-    local dlg = Dialog{title = "AAtoM v0.2"}
+    local dlg = Dialog{title = "AAtoM v0.3"}
 
     -- Add elements to the dialog window
     dlg:label{ id="label", text="Select save type:" }
@@ -33,17 +33,19 @@ if app.activeSprite ~= nil then
         for i, frame in ipairs(spr.frames) do
             -- Get the image of the current frame
             local cel = spr.layers[1]:cel(frame.frameNumber)
-            local image = cel.image
+            if cel ~= nil then
+                local image = cel.image
 
-            -- Get the position offset of the original frame
-            local xOffset = cel.position.x
-            local yOffset = cel.position.y
+                -- Get the position offset of the original frame
+                local xOffset = cel.position.x
+                local yOffset = cel.position.y
 
-            -- Calculate the position to insert the frame in the new sprite
-            local position = Point(xOffset, height * (i - 1) + yOffset)
+                -- Calculate the position to insert the frame in the new sprite
+                local position = Point(xOffset, height * (i - 1) + yOffset)
 
-            -- Insert the frame image into the new sprite
-            newCel.image:drawImage(image, position)
+                -- Insert the frame image into the new sprite
+                newCel.image:drawImage(image, position)
+            end
         end
 
         filename = spr.filename:match("^(.+)%..+$")
@@ -87,7 +89,7 @@ if app.activeSprite ~= nil then
         jsonData = jsonData .. '    ]\n}\n}\n'
 
         -- Create the mcmeta file and write the data to it
-        local mcmetaFile = io.open(filename .. ".mcmeta", "w")
+        local mcmetaFile = io.open(filename .. ".png.mcmeta", "w")
         mcmetaFile:write(jsonData)
         mcmetaFile:close()
 
