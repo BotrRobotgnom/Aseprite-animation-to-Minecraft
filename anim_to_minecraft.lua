@@ -1,5 +1,5 @@
 -- Author: BotrRobotgnom
--- GitHub: https://github.com/BotrRobotgnom/Asesprite-animation-to-Minecraft
+-- GitHub: https://github.com/BotrRobotgnom/Aseprite-animation-to-Minecraft
 
 if app.activeSprite ~= nil then
     local dlg = Dialog{title = "AAtoM v0.3"}
