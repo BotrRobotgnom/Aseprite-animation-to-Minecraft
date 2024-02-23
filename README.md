@@ -1,4 +1,4 @@
-# Asesprite Animation to Minecraft
+# Aseprite Animation to Minecraft
 
 This script allows you to quickly export animations from Aseprite to PNG image and mcmeta file for use in Minecraft.
 
@@ -28,4 +28,4 @@ This script allows you to quickly export animations from Aseprite to PNG image a
 
 **Note:** This script is provided as-is without any warranty. Use it at your own risk.
 
-Thank you for using Asesprite Animation to Minecraft! If you have any questions or feedback, please don't hesitate to reach out.
+Thank you for using Aseprite Animation to Minecraft! If you have any questions or feedback, please don't hesitate to reach out.
