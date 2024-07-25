@@ -49,8 +49,15 @@ if app.activeSprite ~= nil then
         end
 
         filename = spr.filename:match("^(.+)%..+$")
-        newSpr:saveAs(filename..".png")
-        newSpr:close()
+        if filename ~= nil then
+            newSpr:saveAs(filename..".png")
+            newSpr:close()
+        else
+            local err_dlg = Dialog{title = "Error exporting mc animation"}
+            err_dlg:label { id="errLabel", text="Failed to export mc animation to file because it has not been saved yet" }
+            err_dlg:show()
+            return
+        end
 
         framespeed = tonumber(data.fpsEntry)
 
