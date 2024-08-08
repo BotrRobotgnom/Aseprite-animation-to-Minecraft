@@ -23,6 +23,15 @@ if app.activeSprite ~= nil then
         local width = spr.width
         local height = spr.height
 
+        filename = spr.filename:match("^(.+)%..+$")
+
+        if filename == nil then
+            local err_dlg = Dialog { title = "Error exporting mc animation" }
+            err_dlg:label { id = "errLabel", text = "Failed to export mc animation to file because it has not been saved yet" }
+            err_dlg:show()
+            return
+        end
+
         -- Create a new sprite with the desired width and height
         local newSpr = Sprite(width, height * #spr.frames, spr.colorMode, spr.pixelRatio)
         local newLayer = newSpr.layers[1]
@@ -48,7 +57,6 @@ if app.activeSprite ~= nil then
             end
         end
 
-        filename = spr.filename:match("^(.+)%..+$")
         newSpr:saveAs(filename..".png")
         newSpr:close()
 
